@@ -1,0 +1,52 @@
+﻿@model CalculationViewModel
+<style>
+    .main {
+        width: 50% !important;
+        margin: 0 auto !important;
+    }
+</style>
+
+<div class="main">
+    <h4>Enter your parckage properties</h4>
+    <form id="propertiesForm">
+        <div class="form-group">
+            <label for="@Model.UserInput.Width">Width: </label>
+            <input asp-for="@Model.UserInput.Width" type="text" class="form-control col-sm-2" placeholder="Enter width">
+        </div>
+        <div class="form-group">
+            <label for="@Model.UserInput.Height">Height:</label>
+            <input asp-for="@Model.UserInput.Height" type="text" class="form-control col-sm-2" placeholder="Lenght">
+        </div>
+        <div class="form-group">
+            <label for="@Model.UserInput.Depth">Depth:</label>
+            <input asp-for="@Model.UserInput.Depth" type="text" class="form-control col-sm-2" placeholder="Depth">
+        </div>
+        <div class="form-group">
+            <label for="@Model.UserInput.Weight">Weight:</label>
+            <input asp-for="@Model.UserInput.Weight" type="text" class="form-control col-sm-2" placeholder="Weight">
+        </div>
+
+        <button type="button" id="submitForm" class="btn btn-primary">Calculate price</button>
+    </form>
+</div>
+<partial name="_ModalPartialView" />
+<script>
+
+    $('#submitForm').on('click', function () {
+        debugger;
+        var form_data = new FormData($("#propertiesForm")[0]);
+
+        $.ajax({
+            type: "POST",
+            url: "/Calculation/CalculatePrices",
+            data: form_data,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                debugger;
+                $("#modal-body-id").html(data);
+                $('#exampleModal').modal("show");
+            }
+        });
+    });
+</script>
