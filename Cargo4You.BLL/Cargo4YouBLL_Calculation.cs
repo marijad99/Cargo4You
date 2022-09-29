@@ -133,6 +133,13 @@ namespace Cargo4You.BLL
                                 price = calculationRule.Price;
                         }
                         break;
+                    case (int)Operators.GreaterThan:
+                        if (calculationRule.FirstValue != null)
+                        {
+                            if (value > Int32.Parse(calculationRule.FirstValue))
+                                price = calculationRule.Price;
+                        }
+                        break;
                 }
                 if (calculationRule.AdditionalCharges != null && calculationRule.OverLimit.Value != null)
                     if (value > calculationRule.OverLimit.Value)

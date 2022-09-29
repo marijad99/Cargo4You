@@ -77,6 +77,13 @@ namespace Cargo4You.BLL
                             validValidationRulesIds.Add(validation.Id);
                         }
                         break;
+                    case (int)Operators.GreaterThan:
+                        if (validation.FirstValue != null)
+                        {
+                            if (userInputValue > Int32.Parse(validation.FirstValue))
+                                validValidationRulesIds.Add(validation.Id);
+                        }
+                        break;
                 }
             }
             catch(Exception ex)

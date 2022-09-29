@@ -22,7 +22,7 @@ namespace Cargo4You.Core
             GreaterThan = 1,
             [Description(">=")]
             GreaterThanOrEqual = 2,
-            [Description("<")]
+            [Description("=<")]
             LessThan = 3,
             [Description("<=")]
             LessThanOrEqual = 4,
