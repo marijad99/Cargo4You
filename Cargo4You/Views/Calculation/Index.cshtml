@@ -33,7 +33,6 @@
 <script>
 
     $('#submitForm').on('click', function () {
-        debugger;
         var form_data = new FormData($("#propertiesForm")[0]);
 
         $.ajax({
@@ -43,7 +42,6 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                debugger;
                 $("#modal-body-id").html(data);
                 $('#exampleModal').modal("show");
             }

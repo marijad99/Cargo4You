@@ -1,13 +1,12 @@
 ﻿@model Cargo4You.Models.CalculationViewModel
 
-<div class="row">
+<div class="row justify-content-around">
     @foreach (var item in Model.CalculatedCouriesPrices)
     {
-        <div class="col-xl-4 d-flex align-items-stretch">
-            <div class="icon-box mt-4 mt-xl-0">
-                <i class="bx bx-receipt"></i>
-                <h4>@item.CourierName</h4>
-                <p>@item.Price + "€" </p>
+        <div class="card text-white bg-info mb-3 col-xl-4 d-flex align-items-stretch" style="max-width: 18rem;">
+            <div class="card-header">@item.CourierName</div>
+            <div class="card-body">
+                <h5 class="card-title text-center">@item.Price €</h5>
             </div>
         </div>
     }
